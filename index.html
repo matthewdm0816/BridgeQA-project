@@ -1,1 +1,125 @@
-<h1>Under Contruction, Coming Soon!</h1>
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BridgeQA-AAAI24</title>
+    <style>
+        body {
+            text-align: center; /* 将页面文本水平居中对齐 */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        main {
+            max-width: 800px; /* 控制内容的最大宽度 */
+            margin: 0 auto; /* 居中对齐内容 */
+            text-align: left; /* 恢复内容的左对齐 */
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        header a {
+            color: #FFE4B5;
+        }
+        main a {
+            color: #4169E1;
+        }
+        footer a {
+            color: #FFE4B5;
+        }
+        img {
+            max-width: 100%; /* 图片最大宽度为父元素宽度的100% */
+            height: auto; /* 让高度自动调整以保持原始宽高比 */
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</style></head>
+<body>
+    <header>
+        <h1>Bridging the Gap between 2D and 3D Visual Question Answering: A Fusion Approach for 3D VQA</h1>
+        <p><strong>Accepted by AAAI 2023</strong></p>
+        <p><strong>[<a href="">pdf</a>]
+            [<a href="">supp</a>]
+            [<a href="https://github.com/matthewdm0816/BridgeQA">code</a>]</strong></p>
+        <p><a href="https://matthewdm0816.github.io/">Wentao Mo</a><sup>1</sup>, <a href="http://www.csyangliu.com/">Yang Liu</a><sup>1,2,†</sup></p>
+        <p style="line-height: 0.2;">Wangxuan Institute of Computer Technology, Peking University<sup>1</sup></p>
+        <p style="line-height: 0.2;">National Key Laboratory of General Artificial Intelligence, Peking University<sup>2</sup>
+        </p>
+        <pre>mowt@pku.edu.cn  yangliu@pku.edu.cn</pre>
+    </header>
+    <main>
+        <section>
+            <h2>Abstract</h2>
+            <p>In 3D Visual Question Answering (3D VQA), the scarcity of fully annotated data and limited visual content diversity hampers the generalization to novel scenes and 3D concepts (e.g., only around 800 scenes are utilized in ScanQA and SQA dataset).
+              Current approaches resort supplement 3D reasoning with 2D information. However, these methods face challenges: either they use top-down 2D views that introduce overly complex and sometimes question-irrelevant visual clues, or they rely on globally aggregated scene/image-level representations from 2D VLMs, losing the fine-grained vision-language correlations.
+              To overcome these limitations, our approach utilizes question-conditional 2D view selection procedure, pinpointing semantically relevant 2D inputs for crucial visual clues. We then integrate this 2D knowledge into the 3D-VQA system via a two-branch Transformer structure. This structure, featuring a Twin-Transformer design, compactly combines 2D and 3D modalities and captures fine-grained correlations between modalities, allowing them mutually augmenting each other. 
+              Integrating proposed mechanisms above, we present BridgeQA, that
+              offers a fresh perspective on multi-modal transformer-based architectures for 3D-VQA. Experiments validate that BridgeQA achieves state-of-the-art on 3D-VQA datasets and significantly outperforms existing solutions.
+              Code is available at <a href="https://github.com/matthewdm0816/BridgeQA">BridgeQA Codebase</a>.
+              </p>
+        </section>
+        <section>
+            <h2>Problem Definition</h2>
+            <img src="MRT-ICCV2023_files/task1.png" alt="Task discription 1">
+            <img src="MRT-ICCV2023_files/task2.png" alt="Task discription 2">
+            <p>Caveats of current 3D-VQA methods.
+              (a). Current 3D-VQA methods exhibits large generalization gap due to 3D data scarcity. 
+              And there are questions with visual concepts that never appeared (e.g., "television cabinet") in either question, answer or object type annotation during training, which are hard for 3D-VQA models to generalize to.
+              (b). Current 3D-VQA methods that explictly incorporate 2D VLMs use top-down views of 3D scenes, which might be too complex with many irrelative visual clues and might be incomplete on relative visual clues for some questions. In BridgeQA, we use question-related views instead, to capture visual context potentially relative to the question.
+              </p>
+        </section>
+        <section>
+            <h2>Method Overview</h2>
+            <img src="MRT-ICCV2023_files/method.png" alt="MRT method overview">
+            <p>
+              Overview of BridgeQA. Our method consists of two main components: question-conditional 2D view selection and a Twin-Transformer 2D-3D VQA framework.
+              (a): In question-conditional view selection, we identify semantic-related 2D views by retrieving images that align with the question's declaration form. This method captures relevant visual cues to enhance the 2D-3D question answering model.
+              (b): Our 2D-3D VQA framework utilizes a Twin-Transformer structure, comprising two branches: a 2D vision-language model (VLM) and a 3D branch of similar structure. We apply a lightweight 2D-3D fusion operation. This integration infuses 2D visual context into 3D VQA without modifying the underlying 2D VLM architecture, preserving the pre-trained 2D VL knowledge while allowing for compact fusion of intermediate representations.
+            </p>
+        </section>
+        <section>
+            <h2>Experimental Results</h2>
+            <div class="center">
+                <img src="MRT-ICCV2023_files/results1.png" alt="Main results" width="60%" height="auto">
+            </div>
+            <p>Our method achieves state-of-the-art performance on ScanQA and SQA datasets, and surpasses previous 2D and 3D vision-language pretraining (VLP) methods.
+            </p>
+            <!-- <img src="MRT-ICCV2023_files/results2.png" alt="Visualization">
+            <p>Visulization of detection results demostrate the effectiveness of each module of our method.</p> -->
+        </section>
+        <section>
+            <h2>Introduction Video</h2>
+            <div class="center">
+                <iframe width="800" height="450" src="MRT-ICCV2023_files/GGhBn6akViU.htm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+            </div>
+        </section>
+        <section>
+            <h2>Citation</h2>
+            <p>If you use BridgeQA in your research or wish to refer to the results published in the paper, please use the
+                following BibTeX entry.</p>
+            <!-- <pre>@inproceedings{zhao2023masked,
+                title={Masked Retraining Teacher-Student Framework for Domain Adaptive Object Detection},
+                author={Zhao, Zijing and Wei, Sitong and Chen, Qingchao and Li, Dehui and Yang, Yifan and Peng, Yuxin and Liu, Yang},
+                booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+                pages={19039--19049},
+                year={2023}
+            }
+            </pre> -->
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Page created by Wentao Mo</a></p>
+    </footer>
+
+
+</body></html>
