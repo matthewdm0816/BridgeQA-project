@@ -70,8 +70,8 @@
         </section>
         <section>
             <h2>Motivation</h2>
-            <img src="MRT-ICCV2023_files/task1.png" alt="Task discription 1">
-            <img src="MRT-ICCV2023_files/task2.png" alt="Task discription 2">
+            <img src="motif.png" alt="Motivation">
+            <!-- <img src="MRT-ICCV2023_files/task2.png" alt="Task discription 2"> -->
             <p>Caveats of current 3D-VQA methods.
               (a). Current 3D-VQA methods exhibits large generalization gap due to 3D data scarcity. 
               And there are questions with visual concepts that never appeared (e.g., "television cabinet") in either question, answer or object type annotation during training, which are hard for 3D-VQA models to generalize to.
@@ -80,7 +80,7 @@
         </section>
         <section>
             <h2>Method Overview</h2>
-            <img src="MRT-ICCV2023_files/method.png" alt="MRT method overview">
+            <img src="method-xx.png" alt="MRT method overview">
             <p>
               Overview of BridgeQA. Our method consists of two main components: question-conditional 2D view selection and a Twin-Transformer 2D-3D VQA framework.
               (a): In question-conditional view selection, we identify semantic-related 2D views by retrieving images that align with the question's declaration form. This method captures relevant visual cues to enhance the 2D-3D question answering model.
@@ -90,7 +90,7 @@
         <section>
             <h2>Experimental Results</h2>
             <div class="center">
-                <img src="MRT-ICCV2023_files/results1.png" alt="Main results" width="60%" height="auto">
+                <img src="exp.svg" alt="Main results" width="60%" height="auto">
             </div>
             <p>Our method achieves state-of-the-art performance on ScanQA and SQA datasets, and surpasses previous 2D and 3D vision-language pretraining (VLP) methods.
             </p>
@@ -100,7 +100,11 @@
         <section>
             <h2>Introduction Video</h2>
             <div class="center">
-                <iframe width="800" height="450" src="MRT-ICCV2023_files/GGhBn6akViU.htm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+                <iframe id="ytplayer" type="text/html" width="800" height="450"
+                        src="https://www.youtube.com/embed/tvVu1MH96aA"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""
+                        frameborder="0"></iframe>
+                <!-- <iframe width="800" height="450" src="MRT-ICCV2023_files/GGhBn6akViU.htm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe> -->
             </div>
         </section>
         <section>
